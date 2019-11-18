@@ -1,0 +1,5 @@
+{
+  "hello": "Hola",
+  "info": "Ceci est une application native React",
+  "lang": "La langue de l'application est {{lang}}."
+}

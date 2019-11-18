@@ -1,0 +1,5 @@
+{
+  "hello": "Merhaba",
+  "info": "Bu bir react native uygulamasıdır.",
+  "lang": "Uygulamanın dili {{lang}} dir."
+}

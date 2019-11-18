@@ -12,7 +12,8 @@ module.exports = {
           '@navigation': './src/navigation',
           '@store': './src/store',
           '@api': './src/api',
-          '@screens': './src/screens'
+          '@screens': './src/screens',
+          '@locale': './src/locale'
         }
       }
     ]

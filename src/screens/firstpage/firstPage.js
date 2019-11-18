@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, FlatList, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
 import { SECONDPAGE } from '@navigation/app/constants';
+import { translate, setI18nConfig, i18n } from '@locale/index';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const emptyImage = require('@assets/images/box.png');
 
@@ -63,6 +65,11 @@ class Firstpage extends Component {
     );
   };
 
+  changeLanguage = (languageTag, isRTL) => {
+    setI18nConfig({ languageTag, isRTL }); // set initial config
+    this.forceUpdate();
+  };
+
   render() {
     const { container } = styles;
     const { data } = this.props;
@@ -76,14 +83,39 @@ class Firstpage extends Component {
             <ActivityIndicator size="large" color="black" style={{ alignSelf: 'center' }} />
           </View>
         ) : (
-          <FlatList
-            data={data}
-            contentContainerStyle={{ flexGrow: 1 }}
-            renderItem={this.renderItem}
-            keyExtractor={this.keyExtractor}
-            ItemSeparatorComponent={this.renderItemSeperator}
-            ListEmptyComponent={this.renderItemEmptyComponent}
-          />
+          <View style={{ flex: 1 }}>
+            <View style={{ flexDirection: 'row' }}>
+              <ScrollView horizontal>
+                <TouchableOpacity onPress={() => this.changeLanguage('tr', false)}>
+                  <Text style={{ padding: 10, margin: 8, backgroundColor: '#eee' }}>TR</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.changeLanguage('en', false)}>
+                  <Text style={{ padding: 10, margin: 8, backgroundColor: '#eee' }}>EN</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.changeLanguage('fr', false)}>
+                  <Text style={{ padding: 10, margin: 8, backgroundColor: '#eee' }}>FR</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.changeLanguage('ar', true)}>
+                  <Text style={{ padding: 10, margin: 8, backgroundColor: '#eee' }}>AR</Text>
+                </TouchableOpacity>
+              </ScrollView>
+            </View>
+            <View style={{ padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+              <Text style={{ fontSize: 22, fontFamily: 'Montserrat-Medium', textAlign: 'center' }}>
+                {translate('hello')} {'\n'}
+                {translate('info')} {'\n'}
+                {translate('lang', { lang: i18n.currentLocale() })}
+              </Text>
+            </View>
+            <FlatList
+              data={data}
+              contentContainerStyle={{ flexGrow: 1 }}
+              renderItem={this.renderItem}
+              keyExtractor={this.keyExtractor}
+              ItemSeparatorComponent={this.renderItemSeperator}
+              ListEmptyComponent={this.renderItemEmptyComponent}
+            />
+          </View>
         )}
       </View>
     );
