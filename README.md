@@ -1,1 +1,1 @@
-# simple_react_native_redux
+# react_native_example
