@@ -7,6 +7,13 @@ import { ScrollView } from 'react-native-gesture-handler';
 const emptyImage = require('@assets/images/box.png');
 
 class Firstpage extends Component {
+  static navigationOptions = ({ navigation }) => {
+    const { params } = navigation.state;
+    return {
+      headerTitle: params ? params.pageTitle : 'First Page'
+    };
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +22,7 @@ class Firstpage extends Component {
   }
 
   componentDidMount = async () => {
+    this.props.navigation.setParams({ pageTitle: translate('pageTitle') });
     this.setState({ loading: true });
     await this.props.fetchData();
     this.setState({ loading: false });
@@ -67,6 +75,7 @@ class Firstpage extends Component {
 
   changeLanguage = (languageTag, isRTL) => {
     setI18nConfig({ languageTag, isRTL }); // set initial config
+    this.props.navigation.setParams({ pageTitle: translate('pageTitle') });
     this.forceUpdate();
   };
 

@@ -1,5 +1,6 @@
 {
   "hello": "Merhaba",
   "info": "Bu bir react native uygulamasıdır.",
-  "lang": "Uygulamanın dili {{lang}} dir."
+  "lang": "Uygulamanın dili {{lang}} dir.",
+  "pageTitle": "Sayfa 1"
 }

@@ -1,5 +1,6 @@
 {
   "hello": "Hi",
   "info": "This is an React Native App",
-  "lang": "The language of the application is {{lang}}."
+  "lang": "The language of the application is {{lang}}.",
+  "pageTitle": "Page 1"
 }

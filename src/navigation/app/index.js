@@ -5,10 +5,7 @@ import { FIRSTPAGE, SECONDPAGE } from './constants';
 
 const AppNavigation = createStackNavigator({
   [FIRSTPAGE]: {
-    screen: ScreenFirst,
-    navigationOptions: () => ({
-      headerTitle: 'First Page'
-    })
+    screen: ScreenFirst
   },
   [SECONDPAGE]: {
     screen: ScreenSecond,
