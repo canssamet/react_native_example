@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, FlatList, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  Image,
+  TouchableOpacity,
+  SafeAreaView
+} from 'react-native';
 import { SECONDPAGE } from '@navigation/app/constants';
 import { translate, setI18nConfig, i18n } from '@locale/index';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -86,7 +95,7 @@ class Firstpage extends Component {
       return <Text>{this.props.error.errorMessage}</Text>;
     }
     return (
-      <View style={container}>
+      <SafeAreaView style={container}>
         {this.state.loading ? (
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <ActivityIndicator size="large" color="black" style={{ alignSelf: 'center' }} />
@@ -126,7 +135,7 @@ class Firstpage extends Component {
             />
           </View>
         )}
-      </View>
+      </SafeAreaView>
     );
   }
 }
